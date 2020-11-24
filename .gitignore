@@ -6,3 +6,4 @@
 html/*
 logs/*
 mysql/*
+db/sql/*
