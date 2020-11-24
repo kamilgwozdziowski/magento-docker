@@ -63,7 +63,7 @@ ENV BASE_URL $BASE_URL
 ENV MYSQL_DATABASE $MYSQL_DATABASE
 ENV MYSQL_USER $MYSQL_USER
 ENV MYSQL_PASSWORD $MYSQL_PASSWORD
-ENV AUTO_INSTALL false
+ENV AUTO_INSTALL $AUTO_INSTALL
 
 ADD ./docker-entrypoint.sh /docker-entrypoint.sh
 RUN ["chmod", "+x", "/docker-entrypoint.sh"]
