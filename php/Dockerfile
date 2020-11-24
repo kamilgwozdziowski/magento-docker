@@ -1,5 +1,7 @@
 FROM php:7.4-fpm
 
+LABEL maintainer="kamil.gwozdziowski@k2.pl"
+
 # Install dependencies
 RUN apt-get update \
   && apt-get install -y \
@@ -51,6 +53,7 @@ ARG BASE_URL
 ARG MYSQL_DATABASE
 ARG MYSQL_USER
 ARG MYSQL_PASSWORD
+ARG AUTO_INSTALL
 
 # Ustawienie zmiennych dla pliku docker-entrypoint.sh
 ENV MAGENTO_ROOT /var/www/html
@@ -60,7 +63,7 @@ ENV BASE_URL $BASE_URL
 ENV MYSQL_DATABASE $MYSQL_DATABASE
 ENV MYSQL_USER $MYSQL_USER
 ENV MYSQL_PASSWORD $MYSQL_PASSWORD
-ENV INSTALL false
+ENV AUTO_INSTALL false
 
 ADD ./docker-entrypoint.sh /docker-entrypoint.sh
 RUN ["chmod", "+x", "/docker-entrypoint.sh"]

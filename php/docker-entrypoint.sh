@@ -6,7 +6,7 @@ chown www-data:www-data $MAGENTO_ROOT
     composer config --global http-basic.repo.magento.com \
         $COMPOSER_MAGENTO_USERNAME $COMPOSER_MAGENTO_PASSWORD
 
-if [[ "$INSTALL" = "true" ]]; then
+if [[ "$AUTO_INSTALL" = "true" ]]; then
   composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition=2.4.1 $MAGENTO_ROOT
 
   $MAGENTO_ROOT/bin/magento setup:install \
@@ -29,6 +29,8 @@ if [[ "$INSTALL" = "true" ]]; then
     --elasticsearch-port=9200
 
     $MAGENTO_ROOT/bin/magento setup:di:compile
+
+    chmod -R 777 $MAGENTO_ROOT
 fi
 
 exec "$@"
