@@ -32,6 +32,8 @@ xdebug, xml, xmlreader, xmlwriter, xsl, Zend OPcache, zip, zlib, Xdebug, Zend OP
 
 - `COMPOSER_MAGENTO_PASSWORD` - public private z Magento marketplace
 
+- `AUTO_INSTALL` - jeśli ta wartość jest true to instalujemy nowa instacje magento, jeśli chcemy korzystać z projektu który już istnieje należy dodac dump bazy danych do **./db/sql**
+
 # Instalacja środowiska Magento 2
 ### Instalacja podstawowa:
 Należy zmienić nazwę pliku .env.example na .env i uzupełnić wszystkie zmienne środowiskowe.
@@ -39,6 +41,9 @@ Teraz uruchamiamy komendę:
 ```
 docker-compose up
 ```
+
+Jeśli jest ustawiona flaga `AUTO_INSTALL` proces potrwa ok 30 min
+
 Komenda ta instaluje nam wszystkie obrazy i automatycznie uruchamia instalacje Magento 2.
 Następnie należy wyedytować plik host wskazujący na domenę np:
 ```

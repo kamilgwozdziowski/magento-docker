@@ -17,7 +17,6 @@ services:
       args:
         - COMPOSER_MAGENTO_USERNAME=${COMPOSER_MAGENTO_USERNAME}
         - COMPOSER_MAGENTO_PASSWORD=${COMPOSER_MAGENTO_PASSWORD}
-        - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
         - MYSQL_DATABASE=${MYSQL_DATABASE}
         - MYSQL_USER=${MYSQL_USER}
         - MYSQL_PASSWORD=${MYSQL_PASSWORD}
@@ -26,6 +25,8 @@ services:
       - 9000:9000
     networks:
       - appnet
+    tty: true
+    command: sh -c "/docker-entrypoint.sh"
     volumes:
       - ./html:/var/www/html
       - ./logs:/var/log/nginx

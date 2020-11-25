@@ -45,6 +45,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 # ustawienie PHP
 ADD etc/php.ini /usr/local/etc/php/conf.d/zz-magento.ini
+ADD html /var/www/html
 
 # Wczytanie argumentów
 ARG COMPOSER_MAGENTO_USERNAME
@@ -65,6 +66,9 @@ ENV MYSQL_USER $MYSQL_USER
 ENV MYSQL_PASSWORD $MYSQL_PASSWORD
 ENV AUTO_INSTALL $AUTO_INSTALL
 
-ADD ./docker-entrypoint.sh /docker-entrypoint.sh
-RUN ["chmod", "+x", "/docker-entrypoint.sh"]
-RUN ["/docker-entrypoint.sh"]
+COPY ./docker-entrypoint.sh /docker-entrypoint.sh
+ENTRYPOINT []
+
+#ADD ./docker-entrypoint.sh /docker-entrypoint.sh
+#RUN ["chmod", "+x", "/docker-entrypoint.sh"]
+#RUN ["/docker-entrypoint.sh"]
