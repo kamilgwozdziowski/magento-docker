@@ -45,7 +45,6 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 # ustawienie PHP
 ADD etc/php.ini /usr/local/etc/php/conf.d/zz-magento.ini
-ADD html /var/www/html
 
 # Wczytanie argumentów
 ARG COMPOSER_MAGENTO_USERNAME
