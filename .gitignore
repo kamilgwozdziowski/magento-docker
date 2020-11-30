@@ -7,3 +7,6 @@ html/*
 logs/*
 mysql/*
 db/sql/*
+/html/pub/static/*
+/html/var/*
+/html/generated/*
