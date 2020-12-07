@@ -2,7 +2,8 @@
 **Wersja PHP:** 7.3 \
 **Wersja Nginx:** 1.11 \
 **Wersja OS:** Ubuntu 20.04.1\
-**Wersja Elastic Search:** 7.8.1
+**Wersja Elastic Search:** 7.8.1\
+**Varnish:** 6.2
 
 # Zawartość obrazu
 ### Moduły PHP:
@@ -93,5 +94,3 @@ Dane do logowania:
 login: admin
 hasło Admin123$
 ```
-
-Jeśli chcemy zmienić te dane na etapie instalacji należy edytować plik `./cli/docker-entrypoint.sh`
