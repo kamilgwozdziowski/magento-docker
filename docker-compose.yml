@@ -25,8 +25,6 @@ services:
       - 9000:9000
     networks:
       - appnet
-    #tty: true
-    #command: sh -c "/docker-entrypoint.sh"
     volumes:
       - ./html:/var/www/html
       - ./logs:/var/log/nginx
@@ -57,6 +55,15 @@ services:
       - TERM=meh
     networks:
         - appnet
+
+  varnish:
+    build: varnish
+    ports:
+      - 80
+    links:
+      - nginx
+    networks:
+      - appnet
 
 networks:
   appnet:
