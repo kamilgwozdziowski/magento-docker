@@ -29,10 +29,10 @@ services:
       - ./html:/var/www/html
       - ./logs:/var/log/nginx
 
-  nginx:
+  web:
     build: nginx
     ports:
-      - 80:80
+      - 8080:80
     networks:
       - appnet
     links:
@@ -57,13 +57,15 @@ services:
         - appnet
 
   varnish:
-    build: varnish
+    image: meanbee/magento2-varnish:latest
+    environment:
+      - VIRTUAL_HOST=${BASE_URL}
+      - VIRTUAL_PORT=80
+      - HTTPS_METHOD=noredirect
     ports:
       - 80
     links:
-      - nginx
-    networks:
-      - appnet
+      - web
 
 networks:
   appnet:

@@ -74,7 +74,7 @@ W przeglądarce uruchamiany adres wpisany
 ### Opcjonalne: Instalacja przykładowych danych:
 Aby zainstalować przykładowe dane do Magento 2 należy wpierw wejść w kontener za pomocą komendy:
 ```
-docker exec -it magento_cli_1 bash
+docker exec -it ${PROJECT_NAME}_php bash
 ```
 i uruchomić te polecenia:
 ```
