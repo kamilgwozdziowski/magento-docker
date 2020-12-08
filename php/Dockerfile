@@ -1,6 +1,6 @@
 FROM php:7.4-fpm
 
-LABEL maintainer="kamil.gwozdziowski@k2.pl"
+MAINTAINER Kamil Gwoździowski <kamil.gwozdziowski@k2.pl>
 
 # Install dependencies
 RUN apt-get update \
