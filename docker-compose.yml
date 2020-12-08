@@ -2,6 +2,7 @@ version: '2'
 services:
 
   elasticsearch:
+    container_name: ${MYSQL_DATABASE}_es
     image: elasticsearch:7.8.1
     networks:
       - appnet
@@ -12,6 +13,7 @@ services:
       discovery.type: single-node
 
   php:
+    container_name: ${MYSQL_DATABASE}_php
     build:
       context: ./php
       args:
@@ -30,8 +32,8 @@ services:
       - ./logs:/var/log/nginx
 
   web:
+    container_name: ${MYSQL_DATABASE}_web
     build: nginx
-    container_name: web222
     ports:
       - 8080:8080
     networks:
@@ -42,6 +44,7 @@ services:
       - ./html:/var/www/html
 
   db:
+    container_name: ${MYSQL_DATABASE}_db
     image: mariadb:10.2
     ports:
       - 3306
@@ -58,6 +61,7 @@ services:
         - appnet
 
   varnish:
+    container_name: ${MYSQL_DATABASE}_varnish
     build: varnish
     ports:
       - 80:80
