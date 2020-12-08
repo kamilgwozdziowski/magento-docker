@@ -22,7 +22,6 @@ services:
         - MYSQL_DATABASE=${MYSQL_DATABASE}
         - MYSQL_USER=${MYSQL_USER}
         - MYSQL_PASSWORD=${MYSQL_PASSWORD}
-        - AUTO_INSTALL=${AUTO_INSTALL}
     ports:
       - 9000:9000
     networks:
@@ -40,6 +39,7 @@ services:
       - appnet
     links:
       - php
+      - redis
     volumes:
       - ./html:/var/www/html
 
@@ -74,6 +74,19 @@ services:
     networks:
       - appnet
 
+  redis:
+    container_name: ${MYSQL_DATABASE}_redis
+    image: redis:latest
+    restart: always
+    volumes:
+      - redis-data:/data
+    networks:
+      - appnet
+
 networks:
   appnet:
     driver: "bridge"
+
+volumes:
+  redis-data:
+    external: false

@@ -94,3 +94,32 @@ Dane do logowania:
 login: admin
 hasło Admin123$
 ```
+
+# Konfiguracja Redis #
+Aby poprawnie skonfigurowac redisa należy w pliku konfiguracyjnym Magento **app/etc/env.php** podmienić *session* na:
+
+```
+  'session' => [
+    'save' => 'redis',
+    'redis' => [
+      'host' => 'redis',
+      'port' => '',
+      'password' => '',
+      'timeout' => '2.5',
+      'persistent_identifier' => '',
+      'database' => '2',
+      'compression_threshold' => '2048',
+      'compression_library' => 'gzip',
+      'log_level' => '1',
+      'max_concurrency' => '6',
+      'break_after_frontend' => '5',
+      'break_after_adminhtml' => '30',
+      'first_lifetime' => '600',
+      'bot_first_lifetime' => '60',
+      'bot_lifetime' => '7200',
+      'disable_locking' => '0',
+      'min_lifetime' => '60',
+      'max_lifetime' => '2592000'
+    ]
+  ],
+```
